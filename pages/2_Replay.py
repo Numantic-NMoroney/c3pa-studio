@@ -6,8 +6,8 @@ import pandas as pd
 from time import sleep
 
 
-# testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
-testing_path='./c3pa-app/testing'
+testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
+# testing_path='./c3pa-app/testing'
 
 if 'pause' not in st.session_state:
     st.session_state.pause = 5
