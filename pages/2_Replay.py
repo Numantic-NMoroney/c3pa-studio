@@ -53,7 +53,7 @@ with col2:
     _ = st.slider("Pause in seconds : ", 1, 15, 5, key='pause')
 
 if st.button("Start Replay"):
-    c3pa_replay(option, st.session.pause, 5)
+    c3pa_replay(option, st.session_state.pause, 5)
 
 st.sidebar.success("Select an option above.")
 
