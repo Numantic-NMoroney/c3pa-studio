@@ -15,5 +15,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the Streamlit app
-CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "C3PA_Studio.py", "--server.port=8080", "--server.address=0.0.0.0"]
 
