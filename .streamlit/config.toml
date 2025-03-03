@@ -1,6 +1,9 @@
 [general]
 email = ""
 
+[global]
+disableWidgetStateDuplicationWarning = true
+
 [theme]
 primaryColor="#ED8428"
 backgroundColor="#3B3B3B"
