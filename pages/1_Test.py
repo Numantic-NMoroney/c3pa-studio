@@ -61,7 +61,9 @@ if st.button("Start Testing"):
 
         h1 = portable_hash(question)
 
-        prompt = question
+        user_input = question
+        # prompt = question
+
         t1 = str(datetime.now()).replace(" ", "_")
 
         time.sleep(15)
