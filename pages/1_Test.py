@@ -13,13 +13,23 @@ sys.path.insert(0, "rag")
 sys.path.insert(0, "utils")
 from rag_bot import CCCPolicyAssistant
 
+testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
+# testing_path = 'c3pa-app/testing'
+
+
 def portable_hash(string):
     encoded_string = string.encode('utf-8')
     hash_object = hashlib.sha256(encoded_string)
     return hash_object.hexdigest()
 
-testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
-# testing_path = 'c3pa-app/testing'
+def update_count(name_txt, n):
+    count_path = os.path.join(testing_path, name_txt)
+    count = ''
+    with open(count_path, "r") as file:
+        count = file.readline()
+    with open(count_path, "w") as file:
+        cn = int(count) + n
+        file.write(str(cn) + "\n")
 
 
 st.title("Test")
@@ -118,6 +128,9 @@ if st.button("Start Testing"):
     out_path = os.path.join(testing_path, name_json)
     with open(out_path, "w") as f:
         f.write(json_str)
+
+    update_count("test_count.txt", len(questions))
+
 
 st.sidebar.success("Select an option above.")
 
