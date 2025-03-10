@@ -88,7 +88,7 @@ if st.button("Start Testing"):
             res_phrase = "\n\nThese references might be useful: \n{}".format(" ".join(retrieved_urls))
 
         # Combine into a single response
-        ai_response = "{} {}".format(st.session_state["bot"].ai_response, res_phrase)
+        ai_response = "{} {}".format(bot.ai_response, res_phrase)
 
         st.text("\n")
         st.text(ai_response)
