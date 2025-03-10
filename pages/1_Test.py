@@ -64,6 +64,8 @@ if st.button("Start Testing"):
     qn = str(len(questions))
     dt = str(datetime.now()).replace(" ", "-")
 
+    initial_context = " You are a chat bot that answers policy questions about California Community Colleges. "
+
     data = []
     for i, question in enumerate(questions) :
 
@@ -71,7 +73,7 @@ if st.button("Start Testing"):
 
         h1 = portable_hash(question)
 
-        user_input = question
+        user_input = initial_context + question
         # prompt = question
 
         t1 = str(datetime.now()).replace(" ", "_")
