@@ -66,7 +66,7 @@ if st.button("Start Testing"):
 
         time.sleep(15)
         #
-        response = bot.show_conversation(input_message=prompt, verbose=False)
+        response = bot.show_conversation(input_message=prompt, chat_bot_verbose=False)
         context_urls = bot.source_urls
         ai_response = bot.ai_response
 
