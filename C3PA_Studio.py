@@ -24,7 +24,7 @@ st.write("Link to CCC-Bot")
 st.write("Link to the corresponding repo")
 
 st.write("Number of test questions logged : " + get_count("test_count.txt"))
-st.write("Number of uaser questions answered : " + get_count("user_question_count.txt"))
+st.write("Number of user questions answered : " + get_count("user_question_count.txt"))
 
 st.sidebar.success("Select an option above.")
 
