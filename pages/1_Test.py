@@ -66,14 +66,29 @@ if st.button("Start Testing"):
 
         time.sleep(15)
         #
-        response = bot.show_conversation(input_message=prompt, chat_bot_verbose=False)
-        context_urls = bot.source_urls
-        ai_response = bot.ai_response
+        # response = bot.show_conversation(input_message=prompt, chat_bot_verbose=False)
+        # context_urls = bot.source_urls
+        # ai_response = bot.ai_response
+        #
+        # if len(context_urls) > 0:
+        #    ai_response += " Context URLs : "
+        #    for url in context_urls:
+        #        ai_response += (" " + url + " ")
 
-        if len(context_urls) > 0:
-            ai_response += " Context URLs : "
-            for url in context_urls:
-                ai_response += (" " + url + " ")
+        # Get the AI assistant's response
+        bot.show_conversation(input_message=user_input)
+
+        # Get retrieved urls
+        retrieved_urls = ["- [{}]({})\n".format(up[0], up[1]) for up in bot.retrieved_urls]
+        retrieved_urls = list(set(retrieved_urls))
+
+        # Create a single string of retrieved URLs
+        res_phrase = ""
+        if len(retrieved_urls) > 0:
+            res_phrase = "\n\nThese references might be useful: \n{}".format(" ".join(retrieved_urls))
+
+        # Combine into a single response
+        ai_response = "{} {}".format(st.session_state["bot"].ai_response, res_phrase)
 
         st.text("\n")
         st.text(ai_response)
