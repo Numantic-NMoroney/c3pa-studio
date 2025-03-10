@@ -7,11 +7,13 @@ streamlit
 langchain
 langchain_community
 langchain_chroma
+langchain_experimental
 langchain_ollama
 langchain_openai
 langchain-google-community
 langchain-google-vertexai
 langgraph
+tabulate
 vertexai
 
 google-cloud-storage
