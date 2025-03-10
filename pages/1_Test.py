@@ -33,16 +33,18 @@ qs = (
     "questions-250226-q10-d.txt"
 )
 
-option = st.selectbox(
+name_qs = st.selectbox(
     "Select a set of questions :",
     qs
 )
-in_path = os.path.join(testing_path, option)
+in_path = os.path.join(testing_path, name_qs)
 
 if st.button("Start Testing"):
     st.write("Testing started.")
 
-    bot = CCCPolicyAssistant()
+    bot = CCCPolicyAssistant(chroma_collection_name = "crawl_docs-vai-2",
+                             chat_bot_verbose=False,
+                             dot_env_path = "")
 
     questions = []
     with open(in_path, "r") as file:
