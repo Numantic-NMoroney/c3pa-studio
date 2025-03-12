@@ -6,15 +6,15 @@ import json, os, sys
 
 
 def configure_app():
-    sys.path.insert(0, "utils")
-    with open("utils/c3pa_studio_path.json") as file:
+    sys.path.insert(0, "data")
+    with open("data/c3pa_studio_path.json") as file:
         mount_path = json.load(file)['mount_path']
 
-    has_mp = os.environ.get("MOUNT_PATH") != None
-    if has_mp:
-        app_path = os.environ.get('MOUNT_PATH', mount_path)
-    else :
+    has_term = os.environ.get('TERM') == 'xterm-256color'
+    if has_term:
         app_path = './c3pa-app/testing'
+    else:
+        app_path = os.environ.get('MOUNT_PATH', mount_path)
 
     with open(app_path + "/c3pa_studio_config.json") as file:
         cfg = json.load(file)
@@ -32,6 +32,8 @@ def get_count(name_txt):
 
 mount_path, app_path, cfg = configure_app()
 
+st.image("data/Numantic_Solutions_Logotype_light.png", width=400)
+
 st.title("C3PA Studio")
 
 st.write("Tools to work with C3PA data assets.")
@@ -44,4 +46,7 @@ st.write("Number of test questions logged : " + get_count("test_count.txt"))
 st.write("Number of user questions answered : " + get_count("user_question_count.txt"))
 
 st.sidebar.success("Select an option above.")
+
+term = os.environ.get('TERM')
+st.write("term : " + str(term))
 
