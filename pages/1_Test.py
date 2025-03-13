@@ -8,12 +8,19 @@ from datetime import datetime
 import time
 import hashlib
 
-
 sys.path.insert(0, "rag")
 sys.path.insert(0, "utils")
-from rag_bot import CCCPolicyAssistant
 
-testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
+from utility_functions import get_count, configure_app
+
+
+mount_path, app_path, cfg = configure_app()
+
+# sys.path.insert(0, "rag")
+# sys.path.insert(0, "utils")
+# from rag_bot import CCCPolicyAssistant
+# 
+# testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
 # testing_path = 'c3pa-app/testing'
 
 
@@ -23,7 +30,8 @@ def portable_hash(string):
     return hash_object.hexdigest()
 
 def update_count(name_txt, n):
-    count_path = os.path.join(testing_path, name_txt)
+    # count_path = os.path.join(testing_path, name_txt)
+    count_path = os.path.join(app_path, name_txt)
     count = ''
     with open(count_path, "r") as file:
         count = file.readline()
@@ -31,6 +39,8 @@ def update_count(name_txt, n):
         cn = int(count) + n
         file.write(str(cn) + "\n")
 
+
+st.image("data/Numantic_Solutions_Logotype_light.png", width=200)
 
 st.title("Test")
 
@@ -47,7 +57,8 @@ name_qs = st.selectbox(
     "Select a set of questions :",
     qs
 )
-in_path = os.path.join(testing_path, name_qs)
+in_path = os.path.join(app_path, name_qs)
+# in_path = os.path.join(testing_path, name_qs)
 
 if st.button("Start Testing"):
     st.write("Testing started.")
@@ -127,7 +138,8 @@ if st.button("Start Testing"):
     json_str = json.dumps(data)
 
     name_json = "log_testing-c3pa-" + dt + ".json"
-    out_path = os.path.join(testing_path, name_json)
+    out_path = os.path.join(app_path, name_json)
+    # out_path = os.path.join(testing_path, name_json)
     with open(out_path, "w") as f:
         f.write(json_str)
 
