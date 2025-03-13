@@ -3,16 +3,18 @@
 
 import streamlit as st
 import pandas as pd
-import os
+import os, sys
 from time import sleep
 
+sys.path.insert(0, "utils")
 
-testing_path = os.environ.get('MOUNT_PATH', '/c3pa-app/testing')    # gcs
-# testing_path='./c3pa-app/testing'
+from utility_functions import get_count, configure_app
+
+
+mount_path, app_path, cfg = configure_app()
 
 if 'pause' not in st.session_state:
     st.session_state.pause = 5
-
 
 def c3pa_replay(name_json, sleep_sec, number_loops):
     txt = st.empty()
@@ -20,7 +22,8 @@ def c3pa_replay(name_json, sleep_sec, number_loops):
         st.text('QUESTION?\n\nAnswer')
     sleep(sleep_sec)
 
-    in_path = os.path.join(testing_path, name_json)
+    in_path = os.path.join(app_path, name_json)
+
     df = pd.read_json(in_path)
 
     for j in range(number_loops):
@@ -30,6 +33,8 @@ def c3pa_replay(name_json, sleep_sec, number_loops):
 
             sleep(sleep_sec)
 
+
+st.image("data/Numantic_Solutions_Logotype_light.png", width=200)
 
 st.title("Replay")
 
