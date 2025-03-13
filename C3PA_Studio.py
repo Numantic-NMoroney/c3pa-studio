@@ -19,7 +19,7 @@ st.markdown("Supplmental tools for the [California Community Colleges Policy-Ass
 st.write("This includes : ")
 
 st.markdown("* Minimalist small batch testing, with logging")
-st.markdown("* Replay previous testing results")
+st.markdown("* Replay of previous testing results")
 st.markdown("* Collect optional user feedback")
 st.markdown("* Summary dashboard view")
 
@@ -29,7 +29,10 @@ st.divider()
 
 st.markdown("[CCC-Bot](https://ccc-polasst.numanticsolutions.com) | " +
     " [GitHub](https://github.com/NumanticSolutions/ccc-policy_assistant) | " +
-    " [Numantic Solutions](https://numanticsolutions.com)")
+    " [Numantic Solutions](https://numanticsolutions.com) | " +
+    " [Terms of Use](https://numanticsolutions.com/#terms) | " +
+    " [Privacy Policy](https://numanticsolutions.com/#privacy) "
+)
 
 # term = os.environ.get('TERM')
 # st.write("term : " + str(term))
