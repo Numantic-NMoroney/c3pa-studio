@@ -15,21 +15,24 @@ st.image("data/Numantic_Solutions_Logotype_light.png", width=400)
 
 st.title("C3PA Studio")
 
-st.write("Tools to work with C3PA data assets.")
-st.write("Select an option to the left to drill down to a specific topic.")
-st.write("Link to CCC-Bot")
-st.write("Link to the corresponding repo")
+st.markdown("Supplmental tools for the [California Community Colleges Policy-Assistant](https://ccc-polasst.numanticsolutions.com).")
+st.write("This includes : ")
 
-st.write("C3PA Studio version : " + cfg['version'])
+st.markdown("* Minimalist small batch testing, with logging")
+st.markdown("* Replay previous testing results")
+st.markdown("* Collect optional user feedback")
+st.markdown("* Summary dashboard view")
 
-test_count = get_count(app_path, "test_count.txt")
-st.write("Number of test questions logged : " + test_count)
+st.write("Select an option to the left to drill down on that topic.")
 
-user_question_count = get_count(app_path, "user_question_count.txt")
-st.write("Number of user questions answered : " + user_question_count)
+st.divider()
 
-term = os.environ.get('TERM')
-st.write("term : " + str(term))
+st.markdown("[CCC-Bot](https://ccc-polasst.numanticsolutions.com) | " +
+    " [GitHub](https://github.com/NumanticSolutions/ccc-policy_assistant) | " +
+    " [Numantic Solutions](https://numanticsolutions.com)")
+
+# term = os.environ.get('TERM')
+# st.write("term : " + str(term))
 
 st.sidebar.success("Select an option above.")
 
