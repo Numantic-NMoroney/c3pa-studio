@@ -25,9 +25,12 @@ user_question_count = get_count(app_path, "user_question_count.txt")
 st.write("Number of user questions answered : " + user_question_count)
 
 st.divider()
-
 st.write("March 2025")
-st.image("data/2503-cccbot-gemeni_2.jpg", width=500)
+st.image("data/2503-cccbot-gemini_2.jpg", width=500)
+
+st.divider()
+st.write("February 2025")
+st.image("data/2502-cccbot-phi3.jpg", width=500)
 
 st.sidebar.success("Select an option above.")
 
