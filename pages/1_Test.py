@@ -12,6 +12,7 @@ sys.path.insert(0, "rag")
 sys.path.insert(0, "utils")
 
 from utility_functions import get_count, configure_app
+from rag_bot import CCCPolicyAssistant
 
 
 mount_path, app_path, cfg = configure_app()
